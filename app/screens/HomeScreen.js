@@ -7,7 +7,7 @@ const HomeScreen = () => {
     <View>
       <SafeAreaView>
         <Text>HomeScreen</Text>
-        <View><Text>hiiiii</Text></View>
+        <View><Text>hiiii</Text></View>
       </SafeAreaView>
     </View>
   );
