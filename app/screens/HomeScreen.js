@@ -21,10 +21,7 @@ useEffect (() => {
     <View>
       {data ? (
         <View
-          style={{
-            marginTop: responsiveHeight(3),
-            padding: responsiveHeight(2),
-          }}
+         
         >
           <Text>
             {data.title}
@@ -33,11 +30,7 @@ useEffect (() => {
             {data.body}
           </Text>
         </View>
-      ) : (
-        <View>
-          <Text>Data not found</Text>
-        </View>
-      )}
+      ) : null}
     </View>
   );
 }
