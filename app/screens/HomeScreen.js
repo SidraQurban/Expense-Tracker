@@ -29,7 +29,7 @@ useEffect (() => {
           <Text>
             {data.title}
           </Text>
-          <Text style={{ fontSize: responsiveFontSize(2), fontWeight: "500" }}>
+          <Text>
             {data.body}
           </Text>
         </View>
