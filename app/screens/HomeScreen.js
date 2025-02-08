@@ -20,15 +20,9 @@ useEffect (() => {
   return (
     <View>
       {data ? (
-        <View
-         
-        >
-          <Text>
-            {data.title}
-          </Text>
-          <Text>
-            {data.body}
-          </Text>
+        <View>
+          <Text>{data.title}</Text>
+          <Text>{data.body}</Text>
         </View>
       ) : null}
     </View>
