@@ -26,7 +26,6 @@ useEffect (() => {
           data={data}
           showsVerticalScrollIndicator = {false}
           renderItem={({ item }) => (
-            
             <View
               style={{
                 marginTop: responsiveHeight(1),
