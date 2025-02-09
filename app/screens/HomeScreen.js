@@ -11,7 +11,9 @@ const getAPIData =async () =>{
    let result = await fetch(url);
    result = await result.json();
    setData(result);
+   console.log(+false+3);
 }
+
 
 useEffect (() => {
   getAPIData();
