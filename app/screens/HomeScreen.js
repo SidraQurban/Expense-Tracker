@@ -4,10 +4,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-dimensions';
 
 const HomeScreen = () => {
-const [data,setData] = useState(undefined);
+const [data,setData] = useState([]);
 
 const getAPIData =async () =>{
-   const url = ("https://jsonplaceholder.typicode.com/posts/1");
+   const url = ("https://jsonplaceholder.typicode.com/posts");
    let result = await fetch(url);
    result = await result.json();
    setData(result);
@@ -19,16 +19,10 @@ useEffect (() => {
   getAPIData();
 },[])
 
-  return (
-    <View>
-      {data ? (
-        <View>
-          <Text>{data.title}</Text>
-          <Text>{data.body}</Text>
-        </View>
-      ) : null}
-    </View>
-  );
+  return <View>{data.length ? data.map((item) => <View>
+    <Text key={item.id}>{item.id}</Text>
+    <Text>{item.title}</Text>
+  </View>) : null}</View>;
 }
 
 export default HomeScreen
