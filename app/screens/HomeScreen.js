@@ -20,6 +20,7 @@ useEffect (() => {
 },[])
 
   return (
+    
     <View>
       {data.length ? (    
         <FlatList
