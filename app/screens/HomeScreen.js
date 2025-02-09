@@ -22,7 +22,6 @@ useEffect (() => {
   return (
     <View>
       {data.length ? (    
-        
         <FlatList
           data={data}
           showsVerticalScrollIndicator = {false}
