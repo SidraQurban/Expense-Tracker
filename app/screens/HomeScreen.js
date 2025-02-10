@@ -19,7 +19,7 @@ useEffect (() => {
   getAPIData();
 },[])
 
-  return (               
+  return (                   
     <View>       
       {data.length ? (   
         <FlatList
