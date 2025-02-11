@@ -1,8 +1,7 @@
-import { View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { responsiveFontSize, responsiveHeight, responsiveWidth }
-from 'react-native-responsive-dimensions';
+import { View, Text, Button, TextInput, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
 const ApiScreen = () => {
 const [name,setName] = useState("");
@@ -14,6 +13,11 @@ const [ageError, setAgeError] = useState(false);
 const [emailError, setEmailError] = useState(false);
 
 const saveData = async() => { 
+
+// setNameError(!name ? true : false);
+// setAgeError(!age ? true : false);
+// setEmailError(!email ? true : false);
+// return !name || !age || !email ? false : true;
 
 setNameError(!name);
 setAgeError(!age);
@@ -122,7 +126,7 @@ let result = await fetch(url , {
    );
 }
 
-export default ApiScreen;
+export default ApiScreen
 
 
 
