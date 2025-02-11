@@ -14,27 +14,10 @@ const [emailError, setEmailError] = useState(false);
 
 const saveData = async() => { 
 
-if(!name){
-    setNameError(true);
-}else{
-    setNameError(false);
-}
-
-if(!age){
-    setAgeError(true);
-}else{
-    setAgeError(false);
-}
-
-if(!email){
-    setEmailError(true);
-}else{
-    setEmailError(false);
-}
-
-if(!name || !age || !email){
-    return false;
-}
+setNameError(!name);
+setAgeError(!age);
+setEmailError(!email);
+return !(name && age && email);
 
 const url ="http://10.0.2.2:3000/users"
 let result = await fetch(url , {
@@ -89,7 +72,7 @@ let result = await fetch(url , {
            />
            {ageError ? (
              <View>
-               <Text style={{ color: "red" }}>Invalid Name</Text>
+               <Text style={{ color: "red" }}>Invalid Age</Text>
              </View>
            ) : null}
            {/* email */}
@@ -106,7 +89,7 @@ let result = await fetch(url , {
            />
            {emailError ? (
              <View>
-               <Text style={{ color: "red" }}>Invalid Name</Text>
+               <Text style={{ color: "red" }}>Invalid Email</Text>
              </View>
            ) : null}
            <TouchableOpacity
