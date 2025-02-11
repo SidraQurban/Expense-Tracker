@@ -8,7 +8,34 @@ const [name,setName] = useState("");
 const [age,setAge] = useState("");
 const[email,setEmail] =useState("");
 
+const[nameError,setNameError] = useState(false);
+const [ageError, setAgeError] = useState(false);
+const [emailError, setEmailError] = useState(false);
+
 const saveData = async() => { 
+
+if(!name){
+    setNameError(true);
+}else{
+    setNameError(false);
+}
+
+if(!age){
+    setAgeError(true);
+}else{
+    setAgeError(false);
+}
+
+if(!email){
+    setEmailError(true);
+}else{
+    setEmailError(false);
+}
+
+if(!name || !age || !email){
+    return false;
+}
+
 const url ="http://10.0.2.2:3000/users"
 let result = await fetch(url , {
     method: 'POST',
@@ -43,6 +70,11 @@ let result = await fetch(url , {
                width: responsiveWidth(70),
              }}
            />
+           {nameError ? (
+             <View>
+               <Text style={{ color: "red" }}>Invalid Name</Text>
+             </View>
+           ) : null}
            {/* age */}
            <TextInput
              placeholder="Enter Your Age"
@@ -55,6 +87,11 @@ let result = await fetch(url , {
                width: responsiveWidth(70),
              }}
            />
+           {ageError ? (
+             <View>
+               <Text style={{ color: "red" }}>Invalid Name</Text>
+             </View>
+           ) : null}
            {/* email */}
            <TextInput
              placeholder="Enter Your Email"
@@ -67,17 +104,22 @@ let result = await fetch(url , {
                width: responsiveWidth(70),
              }}
            />
+           {emailError ? (
+             <View>
+               <Text style={{ color: "red" }}>Invalid Name</Text>
+             </View>
+           ) : null}
            <TouchableOpacity
-           onPress={saveData}
+             onPress={saveData}
              style={{
                backgroundColor: "green",
                width: responsiveWidth(50),
                height: responsiveHeight(5),
-               borderRadius:responsiveHeight(20),
+               borderRadius: responsiveHeight(20),
                justifyContent: "center",
                alignItems: "center",
-               marginTop:responsiveHeight(2),
-               marginLeft:responsiveWidth(10)
+               marginTop: responsiveHeight(2),
+               marginLeft: responsiveWidth(10),
              }}
            >
              <Text
