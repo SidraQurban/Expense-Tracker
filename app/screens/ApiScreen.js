@@ -4,34 +4,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const ApiScreen = () => {
-const [name,setName] = useState("");
-const [age,setAge] = useState("");
-const[email,setEmail] =useState("");
 
-const[nameError,setNameError] = useState(false);
-const [ageError, setAgeError] = useState(false);
-const [emailError, setEmailError] = useState(false);
 
-const saveData = async() => { 
 
-// setNameError(!name ? true : false);
-// setAgeError(!age ? true : false);
-// setEmailError(!email ? true : false);
-// return !name || !age || !email ? false : true;
-
-setNameError(!name);
-setAgeError(!age);
-setEmailError(!email);
-return !(name && age && email);
-
-const url ="http://10.0.2.2:3000/users"
-let result = await fetch(url , {
-    method: 'POST',
-    header:{'Content-Type':'applicatiom/json'},
-    body:JSON.stringify({name, age, email})
-})
-
-}
 
    return (
      <SafeAreaView>
@@ -45,82 +20,7 @@ let result = await fetch(url , {
          >
            Submission Form
          </Text>
-         {/* Form */}
-         <View style={{ padding: responsiveWidth(10) }}>
-           <TextInput
-             placeholder="Enter Your Name"
-             value={name}
-             onChangeText={(text) => setName(text)}
-             style={{
-               marginTop: responsiveHeight(2),
-               borderColor: "green",
-               borderWidth: 2,
-               width: responsiveWidth(70),
-             }}
-           />
-           {nameError ? (
-             <View>
-               <Text style={{ color: "red" }}>Invalid Name</Text>
-             </View>
-           ) : null}
-           {/* age */}
-           <TextInput
-             placeholder="Enter Your Age"
-             value={age}
-             onChangeText={(text) => setAge(text)}
-             style={{
-               marginTop: responsiveHeight(2),
-               borderColor: "green",
-               borderWidth: 2,
-               width: responsiveWidth(70),
-             }}
-           />
-           {ageError ? (
-             <View>
-               <Text style={{ color: "red" }}>Invalid Age</Text>
-             </View>
-           ) : null}
-           {/* email */}
-           <TextInput
-             placeholder="Enter Your Email"
-             value={email}
-             onChangeText={(text) => setEmail(text)}
-             style={{
-               marginTop: responsiveHeight(2),
-               borderColor: "green",
-               borderWidth: 2,
-               width: responsiveWidth(70),
-             }}
-           />
-           {emailError ? (
-             <View>
-               <Text style={{ color: "red" }}>Invalid Email</Text>
-             </View>
-           ) : null}
-           <TouchableOpacity
-             onPress={saveData}
-             style={{
-               backgroundColor: "green",
-               width: responsiveWidth(50),
-               height: responsiveHeight(5),
-               borderRadius: responsiveHeight(20),
-               justifyContent: "center",
-               alignItems: "center",
-               marginTop: responsiveHeight(2),
-               marginLeft: responsiveWidth(10),
-             }}
-           >
-             <Text
-               style={{
-                 fontSize: responsiveFontSize(2),
-                 color: "blue",
-                 fontWeight: "bold",
-               }}
-             >
-               Submit
-             </Text>
-           </TouchableOpacity>
-         </View>
+        
        </View>
      </SafeAreaView>
    );
@@ -128,7 +28,111 @@ let result = await fetch(url , {
 
 export default ApiScreen
 
+// Validation:
+// const [name,setName] = useState("");
+// const [age,setAge] = useState("");
+// const[email,setEmail] =useState("");
+// const[nameError,setNameError] = useState(false);
+// const [ageError, setAgeError] = useState(false);
+// const [emailError, setEmailError] = useState(false);
 
+// const saveData = async() => { 
+
+// setNameError(!name ? true : false);
+// setAgeError(!age ? true : false);
+// setEmailError(!email ? true : false);
+// return !name || !age || !email ? false : true;
+
+// setNameError(!name);
+// setAgeError(!age);
+// setEmailError(!email);
+// return !(name && age && email);
+
+// const url ="http://10.0.2.2:3000/users"
+// let result = await fetch(url , {
+//     method: 'POST',
+//     header:{'Content-Type':'applicatiom/json'},
+//     body:JSON.stringify({name, age, email})
+// })
+
+// }
+
+//  {/* Form */}
+//  <View style={{ padding: responsiveWidth(10) }}>
+//  <TextInput
+//    placeholder="Enter Your Name"
+//    value={name}
+//    onChangeText={(text) => setName(text)}
+//    style={{
+//      marginTop: responsiveHeight(2),
+//      borderColor: "green",
+//      borderWidth: 2,
+//      width: responsiveWidth(70),
+//    }}
+//  />
+//  {nameError ? (
+//    <View>
+//      <Text style={{ color: "red" }}>Invalid Name</Text>
+//    </View>
+//  ) : null}
+//  {/* age */}
+//  <TextInput
+//    placeholder="Enter Your Age"
+//    value={age}
+//    onChangeText={(text) => setAge(text)}
+//    style={{
+//      marginTop: responsiveHeight(2),
+//      borderColor: "green",
+//      borderWidth: 2,
+//      width: responsiveWidth(70),
+//    }}
+//  />
+//  {ageError ? (
+//    <View>
+//      <Text style={{ color: "red" }}>Invalid Age</Text>
+//    </View>
+//  ) : null}
+//  {/* email */}
+//  <TextInput
+//    placeholder="Enter Your Email"
+//    value={email}
+//    onChangeText={(text) => setEmail(text)}
+//    style={{
+//      marginTop: responsiveHeight(2),
+//      borderColor: "green",
+//      borderWidth: 2,
+//      width: responsiveWidth(70),
+//    }}
+//  />
+//  {emailError ? (
+//    <View>
+//      <Text style={{ color: "red" }}>Invalid Email</Text>
+//    </View>
+//  ) : null}
+//  <TouchableOpacity
+//    onPress={saveData}
+//    style={{
+//      backgroundColor: "green",
+//      width: responsiveWidth(50),
+//      height: responsiveHeight(5),
+//      borderRadius: responsiveHeight(20),
+//      justifyContent: "center",
+//      alignItems: "center",
+//      marginTop: responsiveHeight(2),
+//      marginLeft: responsiveWidth(10),
+//    }}
+//  >
+//    <Text
+//      style={{
+//        fontSize: responsiveFontSize(2),
+//        color: "blue",
+//        fontWeight: "bold",
+//      }}
+//    >
+//      Submit
+//    </Text>
+//  </TouchableOpacity>
+// </View>
 
 // // SUBMIT API
 // const [name,setName] = useState("");
@@ -209,6 +213,7 @@ export default ApiScreen
 //              <Button title="Save Data" onPress={saveApiData} />
 //            </View>
 //          </View>
+
 // POST API
 // const saveApiData = async() => {
 //     const data = {
