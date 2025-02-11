@@ -6,7 +6,7 @@ import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-di
 const ApiScreen = () => {
 
 const getAPI =async () => {
-    // const url = "",
+    const url = "http://192.168.100.186:3000/users";
     // let result = await fetch(url);
     // result = await result.json();
 
