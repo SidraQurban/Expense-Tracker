@@ -1,18 +1,36 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, TextInput } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-dimensions'
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
 const ApiScreen = () => {
 
   return (
-   <SafeAreaView>
-     <View style={{marginTop:responsiveHeight(2)}}>
-      <Text style={{fontSize:responsiveFontSize(2), textAlign:"center"}}>Post API Call</Text>
-     
-    </View>
-   </SafeAreaView>
-  )
+    <SafeAreaView>
+      <View style={{ marginTop: responsiveHeight(2) }}>
+        <Text
+          style={{
+            fontSize: responsiveFontSize(2),
+            textAlign: "center",
+            fontWeight: "600",
+          }}
+        >
+          Submission Form
+        </Text>
+       <View style={{marginTop:responsiveHeight(2)}}>
+       <TextInput
+          placeholder="Enter your email"
+          style={{
+            width: responsiveWidth(60),
+            height: responsiveHeight(5),
+            backgroundColor: "red",
+            alignSelf: "center"
+          }}
+        />
+       </View>
+      </View>
+    </SafeAreaView>
+  );
 }
 
 export default ApiScreen
