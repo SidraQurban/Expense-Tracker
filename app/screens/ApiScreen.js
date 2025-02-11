@@ -17,17 +17,21 @@ const ApiScreen = () => {
         >
           Submission Form
         </Text>
-       <View style={{marginTop:responsiveHeight(2)}}>
-       <TextInput
-          placeholder="Enter your email"
-          style={{
-            width: responsiveWidth(60),
-            height: responsiveHeight(5),
-            backgroundColor: "red",
-            alignSelf: "center"
-          }}
-        />
-       </View>
+        <View style={{ marginTop: responsiveHeight(2) }}>
+          <TextInput
+            placeholder="Enter your email"
+            keyboardType="text"
+            style={{
+              width: responsiveWidth(60),
+              height: responsiveHeight(5),
+              backgroundColor: "red",
+              alignSelf: "center",
+              paddingHorizontal: responsiveWidth(2),
+              fontSize: responsiveFontSize(2),
+              borderRadius: 5,
+            }}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
