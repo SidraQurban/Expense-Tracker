@@ -1,11 +1,11 @@
 import { View, Text, Button, TextInput } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
 const ApiScreen = () => {
-
-  return (
+const [name,setName] = useState("");
+   return (
     <SafeAreaView>
       <View style={{ marginTop: responsiveHeight(2) }}>
         <Text
@@ -20,15 +20,18 @@ const ApiScreen = () => {
         <View style={{ marginTop: responsiveHeight(2) }}>
           <TextInput
             placeholder="Enter your email"
-            keyboardType="text"
+            value={name}
+           onChangeText={(text) =>setName(text)}
             style={{
               width: responsiveWidth(60),
               height: responsiveHeight(5),
-              backgroundColor: "red",
+              borderColor: "blue",
+              borderWidth: 1,
               alignSelf: "center",
               paddingHorizontal: responsiveWidth(2),
               fontSize: responsiveFontSize(2),
               borderRadius: 5,
+              color:"black"
             }}
           />
         </View>
