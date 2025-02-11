@@ -1,45 +1,18 @@
-import { View, Text, FlatList } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text } from 'react-native'
+import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
+import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-dimensions'
 
 const ApiScreen = () => {
 
-const [data,setData] = useState([]);
-const getAPI =async () => {
-    const url = "http://10.0.2.2:3000/users";
-    let result = await fetch(url);
-    result = await result.json();
-    setData(result);
-    
-
-}
-
-useEffect(()=> {
-getAPI();
-},[])
 
   return (
-    <SafeAreaView>
-      <View style={{ marginTop: responsiveHeight(2) }}>
-        <Text style={{ fontSize: responsiveFontSize(2), textAlign: "center" }}>
-          Getting API's
-        </Text>
-      </View>
-      {data.length ? (
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <View style={{ flexDirection: "row", padding: responsiveWidth(2), marginTop:responsiveHeight(2) }}>
-              <Text style={{fontSize:20,}}>{item.name}</Text>
-              <Text style={{fontSize:20,}}>{item.age}</Text>
-              <Text style={{fontSize:20,}}>{item.email}</Text>
-            </View>
-          )}
-        />
-      ) : null}
-    </SafeAreaView>
-  );
+   <SafeAreaView>
+     <View style={{marginTop:responsiveHeight(2)}}>
+      <Text style={{fontSize:responsiveFontSize(2), textAlign:"center"}}>Getting API's</Text>
+    </View>
+   </SafeAreaView>
+  )
 }
 
 export default ApiScreen
