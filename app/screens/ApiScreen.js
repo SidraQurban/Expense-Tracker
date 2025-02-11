@@ -1,10 +1,22 @@
-import { View, Text, Button, TextInput } from 'react-native'
+import { View, Text, Button, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
 const ApiScreen = () => {
+const [name,setName] = useState("");
+const [age,setAge] = useState("");
+const[email,setEmail] =useState("");
 
+const saveData = async() => { 
+const url ="http://10.0.2.2:3000/users"
+let result = await fetch(url , {
+    method: 'POST',
+    header:{'Content-Type':'applicatiom/json'},
+    body:JSON.stringify({name, age, email})
+})
+
+}
 
    return (
      <SafeAreaView>
@@ -19,7 +31,66 @@ const ApiScreen = () => {
            Submission Form
          </Text>
          {/* Form */}
-         
+         <View style={{ padding: responsiveWidth(10) }}>
+           <TextInput
+             placeholder="Enter Your Name"
+             value={name}
+             onChangeText={(text) => setName(text)}
+             style={{
+               marginTop: responsiveHeight(2),
+               borderColor: "green",
+               borderWidth: 2,
+               width: responsiveWidth(70),
+             }}
+           />
+           {/* age */}
+           <TextInput
+             placeholder="Enter Your Age"
+             value={age}
+             onChangeText={(text) => setAge(text)}
+             style={{
+               marginTop: responsiveHeight(2),
+               borderColor: "green",
+               borderWidth: 2,
+               width: responsiveWidth(70),
+             }}
+           />
+           {/* email */}
+           <TextInput
+             placeholder="Enter Your Email"
+             value={email}
+             onChangeText={(text) => setEmail(text)}
+             style={{
+               marginTop: responsiveHeight(2),
+               borderColor: "green",
+               borderWidth: 2,
+               width: responsiveWidth(70),
+             }}
+           />
+           <TouchableOpacity
+           onPress={saveData}
+             style={{
+               backgroundColor: "green",
+               width: responsiveWidth(50),
+               height: responsiveHeight(5),
+               borderRadius:responsiveHeight(20),
+               justifyContent: "center",
+               alignItems: "center",
+               marginTop:responsiveHeight(2),
+               marginLeft:responsiveWidth(10)
+             }}
+           >
+             <Text
+               style={{
+                 fontSize: responsiveFontSize(2),
+                 color: "blue",
+                 fontWeight: "bold",
+               }}
+             >
+               Submit
+             </Text>
+           </TouchableOpacity>
+         </View>
        </View>
      </SafeAreaView>
    );
