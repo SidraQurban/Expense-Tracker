@@ -30,10 +30,10 @@ getAPI();
         <FlatList
           data={data}
           renderItem={({ item }) => (
-            <View style={{ flexDirection: "row", padding: responsiveWidth(2) }}>
-              <Text>{item.name}</Text>
-              <Text>{item.age}</Text>
-              <Text>{item.email}</Text>
+            <View style={{ flexDirection: "row", padding: responsiveWidth(2), marginTop:responsiveHeight(2) }}>
+              <Text style={{fontSize:20,}}>{item.name}</Text>
+              <Text style={{fontSize:20,}}>{item.age}</Text>
+              <Text style={{fontSize:20,}}>{item.email}</Text>
             </View>
           )}
         />
