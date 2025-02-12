@@ -39,7 +39,13 @@ const showUser = (data) =>{
 
 // Search
 const searchUser = async (text)=>{
+  if(text === ""){
+    getAPIData();
+    return;
+  }
   const url = `http://10.0.2.2:3000/users?q=${text}`;
+  console.warn(url);
+  
   let result = await fetch(url);
   result = await result.json();
   if(result){
@@ -75,6 +81,17 @@ useEffect(()=> {
                marginLeft: responsiveWidth(2),
              }}
            />
+           {data.length ? (
+             data.map((item) => 
+               <View key={item.id}>
+                 <Text>{item.name}</Text>
+               </View>
+             )
+           ) : (
+             <View>
+               <Text>Result not found</Text>
+             </View>
+           )}
          </View>
          <View
            style={{
