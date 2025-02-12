@@ -39,10 +39,6 @@ const showUser = (data) =>{
 
 // Search
 const searchUser = async (text)=>{
-  if(text === ""){
-    getAPIData();
-    return;
-  }
   const url = `http://10.0.2.2:3000/users?q=${text}`;
   console.warn(url);
   
