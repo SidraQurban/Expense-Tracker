@@ -5,9 +5,6 @@ import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-nat
 
 const ApiScreen = () => {
 
-
-
-
    return (
      <SafeAreaView>
        <View style={{ marginTop: responsiveHeight(2) }}>
