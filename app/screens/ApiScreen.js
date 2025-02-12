@@ -8,7 +8,6 @@ const [data, setData] = useState([]);
 
 const getAPIData =async () => {
 const url = "http://10.0.2.2:3000/users";
-
 let result = await fetch(url);
 result = await result.json();
 
