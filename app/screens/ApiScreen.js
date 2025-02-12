@@ -16,17 +16,16 @@ if(result){
 }
 }
 // Delete
-const deleteUser = async() => {
+const deleteUser = async(id) => {
   const url ="http://10.0.2.2:3000/users";
   let result = await fetch(`${url}/${id}`, {
-    method: "DELETE",
+    method: "delete",
   });
   result = await result.json();
   if(result){
-
    console.warn("User deleted");
-   
-    // getAPIData();
+   setData(result);
+    getAPIData();
   }
 }
 
