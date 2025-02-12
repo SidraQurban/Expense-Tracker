@@ -23,6 +23,7 @@ const deleteUser = async() => {
   });
   result = await result.json();
   if(result){
+    
    console.warn("User deleted");
    
     // getAPIData();
