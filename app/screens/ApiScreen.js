@@ -4,6 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const ApiScreen = () => {
+const [data, setData] = useState([]);
+
+const getAPIData =async () => {
+const url = "http://10.0.2.2:3000/users";
+const response = await fetch(url);
+
+}
 
    return (
      <SafeAreaView>
