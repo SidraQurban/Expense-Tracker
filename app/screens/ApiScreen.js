@@ -12,6 +12,7 @@ let result = await fetch(url);
 result = await result.json();
 if(result){
   setData(result);
+  
 }
 }
 
@@ -23,7 +24,7 @@ const deleteUser = async() => {
   });
   result = await result.json();
   if(result){
-    
+
    console.warn("User deleted");
    
     // getAPIData();
