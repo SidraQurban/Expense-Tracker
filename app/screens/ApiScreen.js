@@ -15,6 +15,19 @@ if(result){
 }
 }
 
+// Delete
+const deleteUser = async() => {
+  const url ="http://10.0.2.2:3000/users";
+  let result = await fetch(`${url}/${id}`, {
+    method: "DELETE",
+  });
+  result = await result.json();
+  if(result){
+   console.warn("User deleted");
+   
+    // getAPIData();
+  }
+}
 
 useEffect(()=> {
   getAPIData();
@@ -36,12 +49,12 @@ useEffect(()=> {
            style={{
              flexDirection: "row",
              marginBottom: responsiveHeight(2),
+             marginTop:responsiveHeight(2),
            }}
          >
-           <Text>Name</Text>
-           <Text>Age</Text>
-           <Text>Email</Text>
-           <Text>Operations</Text>
+           <Text style={{ flex: 1 ,marginLeft:responsiveWidth(2)}}>Name</Text>
+           <Text style={{ flex: 2 }}>Age</Text>
+           <Text style={{ flex: 1 }}>Operations</Text>
          </View>
          {data.length
            ? data.map((item) => (
@@ -53,10 +66,21 @@ useEffect(()=> {
                      padding: responsiveWidth(2),
                    }}
                  >
-                   <Text>{item.name}</Text>
-                   <Text>{item.age}</Text>
-                   <Text>{item.email}</Text>
-                   <Button title="Delete" />
+                   <View style={{ flex: 1 }}>
+                     <Text>{item.name}</Text>
+                   </View>
+
+                   <View style={{ flex: 1 }}>
+                     <Text>{item.age}</Text>
+                   </View>
+
+                   <View style={{ flex: 1 }}>
+                     <Button title="Delete" onPress={()=>deleteUser(item.id)} />
+                   </View>
+
+                   <View style={{ flex: 1 }}>
+                     <Button title="Update" />
+                   </View>
                  </View>
                </View>
              ))
