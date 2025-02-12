@@ -1,5 +1,5 @@
 import { View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
@@ -8,9 +8,14 @@ const [data, setData] = useState([]);
 
 const getAPIData =async () => {
 const url = "http://10.0.2.2:3000/users";
-const response = await fetch(url);
-
+let result = await fetch(url);
+result = await result.json();
+setData(result);
 }
+
+useEffect(()=> {
+  getAPIData();
+},[])
 
    return (
      <SafeAreaView>
@@ -24,7 +29,15 @@ const response = await fetch(url);
          >
            Submission Form
          </Text>
-        
+         {data.length
+           ? data.map((item) => (
+               <View>
+                 <Text>{item.name}</Text>
+                 <Text>{item.age}</Text>
+                 <Text>{item.email}</Text>
+               </View>
+             ))
+           : null}
        </View>
      </SafeAreaView>
    );
