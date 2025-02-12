@@ -32,7 +32,7 @@ const deleteUser = async(id) => {
 }
 
 // Update
-const updateUser = (data) =>{
+const showUser = (data) =>{
   SetShowModal(true);
   setSelectedUser(data)
 }
@@ -90,14 +90,14 @@ useEffect(()=> {
                    </View>
 
                    <View style={{ flex: 1 }}>
-                     <Button title="Update" onPress={()=>updateUser(item)}/>
+                     <Button title="Update" onPress={()=>showUser(item)}/>
                    </View>
                  </View>
                </View>
              ))
            : null}
          <Modal visible={showModal} transparent={true}>
-          <UserModal SetShowModal = {SetShowModal} selectedUser={selectedUser}/>
+          <UserModal SetShowModal = {SetShowModal} selectedUser={selectedUser} getAPIData={getAPIData}/>
          </Modal>
        </View>
      </SafeAreaView>
@@ -105,28 +105,102 @@ useEffect(()=> {
 };
 
 const UserModal = (props) =>{
-  return(
+const[name,setName] = useState([]);
+const[age,setAge] = useState([]);
+const[email,setEmail] = useState([]);
+
+useEffect(()=>{
+
+  if(props.selectedUser){
+    setName(props.selectedUser.name);
+    setAge(props.selectedUser.age.toString());
+    setEmail(props.selectedUser.email);
+  }
+},[props.selectedUser])
+
+const updateUser = async()=>{
+  console.warn(name,age,email);
+  const url = "http://10.0.2.2:3000/users";
+  const id = props.selectedUser.id;
+  let result = await fetch(`${url}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, age, email }),
+  });
+  result =await result.json();
+  if(result){
+  console.warn(result);
+  props.getAPIData();
+  props.SetShowModal(false);
+  }
+  
+}
+
+  return (
     <View>
-  <View
-    style={{
-      alignItems: "center",
-      marginTop: responsiveHeight(30),
-      backgroundColor: "white",
-      padding: responsiveHeight(10),
-      marginLeft: responsiveWidth(10),
-      marginRight: responsiveWidth(10),
-      borderRadius:responsiveHeight(3)
-    }}
-  >
-    <Text>{props.selectedUser.name}</Text>
-    <Text>{props.selectedUser.age}</Text>
-    <Text>{props.selectedUser.email}</Text>
-    <View style={{ marginTop: responsiveHeight(2) }}>
-      <Button title="Close" onPress={() => props.SetShowModal(false)} />
+      <View
+        style={{
+          alignItems: "center",
+          marginTop: responsiveHeight(30),
+          backgroundColor: "white",
+          padding: responsiveHeight(5),
+          marginLeft: responsiveWidth(2),
+          marginRight: responsiveWidth(2),
+          borderRadius: responsiveHeight(2),
+        }}
+      >
+        {/* name */}
+        <TextInput
+          value={name}
+          onChangeText={(text) => setName(text)}
+          placeholder='Enter name'
+          style={{
+            width: responsiveWidth(90),
+            height: responsiveHeight(7),
+            borderColor: "blue",
+            borderWidth: 1,
+            marginBottom: responsiveHeight(1),
+            fontSize:responsiveFontSize(2)
+          }}
+        />
+        {/* age */}
+        <TextInput
+          value={age}
+          onChangeText={(text) => setAge(text)}
+          placeholder='Enter age'
+          style={{
+            width: responsiveWidth(90),
+            height: responsiveHeight(7),
+            borderColor: "blue",
+            borderWidth: 1,
+            marginBottom: responsiveHeight(1),
+            fontSize:responsiveFontSize(2)
+          }}
+        />
+        {/* email */}
+        <TextInput
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          placeholder='Enter email'
+          style={{
+            width: responsiveWidth(90),
+            height: responsiveHeight(7),
+            borderColor: "blue",
+            borderWidth: 1,
+            fontSize:responsiveFontSize(2)
+          }}
+        />
+        <View
+          style={{ marginTop: responsiveHeight(1), width: responsiveWidth(40) }}>
+          <Button title="Update" onPress={ updateUser} />
+        </View>
+        <View
+          style={{ marginTop: responsiveHeight(1), width: responsiveWidth(40) }}>
+          <Button title="Close" onPress={() => props.SetShowModal(false)} />
+        </View>
+      </View>
     </View>
-  </View>
-</View>
-  )
+  );
 }
 
 export default ApiScreen
