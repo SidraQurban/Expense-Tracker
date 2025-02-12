@@ -1,10 +1,12 @@
-import { View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Button, TextInput, TouchableOpacity, Modal } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const ApiScreen = () => {
 const [data, setData] = useState([]);
+const [showModal,SetShowModal] = useState(false);
+const [selectedUser, setSelectedUser] = useState(undefined);
 
 const getAPIData =async () => {
 const url = "http://10.0.2.2:3000/users";
@@ -29,6 +31,12 @@ const deleteUser = async(id) => {
   }
 }
 
+// Update
+const updateUser = (data) =>{
+  SetShowModal(true);
+  setSelectedUser(data)
+}
+
 useEffect(()=> {
   getAPIData();
 },[])
@@ -49,10 +57,10 @@ useEffect(()=> {
            style={{
              flexDirection: "row",
              marginBottom: responsiveHeight(2),
-             marginTop:responsiveHeight(2),
+             marginTop: responsiveHeight(2),
            }}
          >
-           <Text style={{ flex: 1 ,marginLeft:responsiveWidth(2)}}>Name</Text>
+           <Text style={{ flex: 1, marginLeft: responsiveWidth(2) }}>Name</Text>
            <Text style={{ flex: 2 }}>Age</Text>
            <Text style={{ flex: 1 }}>Operations</Text>
          </View>
@@ -75,19 +83,50 @@ useEffect(()=> {
                    </View>
 
                    <View style={{ flex: 1 }}>
-                     <Button title="Delete" onPress={()=>deleteUser(item.id)} />
+                     <Button
+                       title="Delete"
+                       onPress={() => deleteUser(item.id)}
+                     />
                    </View>
 
                    <View style={{ flex: 1 }}>
-                     <Button title="Update" />
+                     <Button title="Update" onPress={()=>updateUser(item)}/>
                    </View>
                  </View>
                </View>
              ))
            : null}
+         <Modal visible={showModal} transparent={true}>
+          <UserModal SetShowModal = {SetShowModal} selectedUser={selectedUser}/>
+         </Modal>
        </View>
      </SafeAreaView>
    );
+};
+
+const UserModal = (props) =>{
+  return(
+    <View>
+  <View
+    style={{
+      alignItems: "center",
+      marginTop: responsiveHeight(30),
+      backgroundColor: "white",
+      padding: responsiveHeight(10),
+      marginLeft: responsiveWidth(10),
+      marginRight: responsiveWidth(10),
+      borderRadius:responsiveHeight(3)
+    }}
+  >
+    <Text>{props.selectedUser.name}</Text>
+    <Text>{props.selectedUser.age}</Text>
+    <Text>{props.selectedUser.email}</Text>
+    <View style={{ marginTop: responsiveHeight(2) }}>
+      <Button title="Close" onPress={() => props.SetShowModal(false)} />
+    </View>
+  </View>
+</View>
+  )
 }
 
 export default ApiScreen
