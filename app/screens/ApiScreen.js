@@ -37,6 +37,17 @@ const showUser = (data) =>{
   setSelectedUser(data)
 }
 
+// Search
+const searchUser = async (text)=>{
+  const url = `http://10.0.2.2:3000/users?q=${text}`;
+  let result = await fetch(url);
+  result = await result.json();
+  if(result){
+    setData(result);
+  }
+  
+}
+
 useEffect(()=> {
   getAPIData();
 },[])
@@ -53,6 +64,18 @@ useEffect(()=> {
          >
            Submission Form
          </Text>
+         <View style={{ marginTop: 20 }}>
+           <TextInput
+             placeholder={"Search Here.."}
+             onChangeText={(text) => searchUser(text)}
+             style={{
+               borderWidth: 1,
+               borderColor: "blue",
+               width: responsiveWidth(90),
+               marginLeft: responsiveWidth(2),
+             }}
+           />
+         </View>
          <View
            style={{
              flexDirection: "row",
@@ -90,14 +113,18 @@ useEffect(()=> {
                    </View>
 
                    <View style={{ flex: 1 }}>
-                     <Button title="Update" onPress={()=>showUser(item)}/>
+                     <Button title="Update" onPress={() => showUser(item)} />
                    </View>
                  </View>
                </View>
              ))
            : null}
          <Modal visible={showModal} transparent={true}>
-          <UserModal SetShowModal = {SetShowModal} selectedUser={selectedUser} getAPIData={getAPIData}/>
+           <UserModal
+             SetShowModal={SetShowModal}
+             selectedUser={selectedUser}
+             getAPIData={getAPIData}
+           />
          </Modal>
        </View>
      </SafeAreaView>
