@@ -10,8 +10,11 @@ const getAPIData =async () => {
 const url = "http://10.0.2.2:3000/users";
 let result = await fetch(url);
 result = await result.json();
-setData(result);
+if(result){
+  setData(result);
 }
+}
+
 
 useEffect(()=> {
   getAPIData();
@@ -29,12 +32,32 @@ useEffect(()=> {
          >
            Submission Form
          </Text>
+         <View
+           style={{
+             flexDirection: "row",
+             marginBottom: responsiveHeight(2),
+           }}
+         >
+           <Text>Name</Text>
+           <Text>Age</Text>
+           <Text>Email</Text>
+           <Text>Operations</Text>
+         </View>
          {data.length
            ? data.map((item) => (
                <View>
-                 <Text>{item.name}</Text>
-                 <Text>{item.age}</Text>
-                 <Text>{item.email}</Text>
+                 <View
+                   style={{
+                     flexDirection: "row",
+                     justifyContent: "space-between",
+                     padding: responsiveWidth(2),
+                   }}
+                 >
+                   <Text>{item.name}</Text>
+                   <Text>{item.age}</Text>
+                   <Text>{item.email}</Text>
+                   <Button title="Delete" />
+                 </View>
                </View>
              ))
            : null}
