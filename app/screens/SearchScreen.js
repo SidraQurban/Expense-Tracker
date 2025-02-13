@@ -16,7 +16,6 @@ const SearchUser = async (text) => {
   }
 };
   return (
-    
     <View>
       <View
         style={{ marginTop: responsiveHeight(4), padding: responsiveWidth(5) }}
