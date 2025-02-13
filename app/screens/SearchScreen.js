@@ -23,7 +23,7 @@ const SearchUser = async (text) => {
         <TextInput
           placeholder="Search Here..."
           style={{ borderColor: "blue", borderWidth: 1 }}
-          onChangeText={(text) => searchUser(text)}
+          onChangeText={(text) => SearchUser(text)}
         />
         {data.length
           ? data.map((item) => 
