@@ -15,6 +15,7 @@ const SearchUser = async (text) => {
     setData(result);
   }
 };
+
   return (
     <View>
       <View
