@@ -10,7 +10,6 @@ const searchUser = async (text) => {
   console.warn(url);
   
   let result = await fetch(url);
-  
   result = await result.json();
   if (result) {
     setData(result);
