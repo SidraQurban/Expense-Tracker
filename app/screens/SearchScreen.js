@@ -5,7 +5,7 @@ import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimen
 const SearchScreen = () => {
 const [data,setData] = useState([]);
 
-const SearchUser = async (text) => {
+const searchUser = async (text) => {
   const url = `http://10.0.2.2:3000/users?q=${text}`;
   console.warn(url);
   
@@ -26,7 +26,7 @@ const SearchUser = async (text) => {
         <TextInput
           placeholder={"Search Here..."}
           style={{ borderColor: "blue", borderWidth: 1 }}
-          onChangeText={(text) => SearchUser(text)}
+          onChangeText={(text) => searchUser(text)}
         />
         {data.length > 0 
           ? data.map((item) => 
