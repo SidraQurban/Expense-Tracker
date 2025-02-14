@@ -11,6 +11,7 @@ const SearchUser = async (text) => {
   
   let result = await fetch(url);
   result = await result.json();
+  console.log("API Response:", result); 
   
   if (result) {
     setData(result);
@@ -23,14 +24,15 @@ const SearchUser = async (text) => {
         style={{ marginTop: responsiveHeight(4), padding: responsiveWidth(5) }}
       >
         <TextInput
-          placeholder="Search Here..."
+          placeholder={"Search Here..."}
           style={{ borderColor: "blue", borderWidth: 1 }}
           onChangeText={(text) => SearchUser(text)}
         />
-        {data.length
+        {data.length > 0 
           ? data.map((item) => 
               <View key={item.id}>
                 <Text>{item.name}</Text>
+                <Text>{item.age}</Text>
               </View>
            )
           : null}
