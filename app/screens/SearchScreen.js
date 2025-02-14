@@ -24,7 +24,10 @@ const searchUser = async (text) => {
         style={{ marginTop: responsiveHeight(4), padding: responsiveWidth(5) }}
       >
         <TextInput
-          placeholder={"Search Here..."}
+          placeholder="Search Here..."
+          clearButtonMode="always"
+          autoCapitalize="none"
+          autoCorrect={false}
           style={{ borderColor: "blue", borderWidth: 1 }}
           onChangeText={(text) => searchUser(text)}
         />
