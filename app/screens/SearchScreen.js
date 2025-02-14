@@ -28,11 +28,10 @@ const searchUser = async (text) => {
           style={{ borderColor: "blue", borderWidth: 1 }}
           onChangeText={(text) => searchUser(text)}
         />
-        {data.length > 0 
+        {data.length
           ? data.map((item) => 
               <View key={item.id}>
                 <Text>{item.name}</Text>
-                <Text>{item.age}</Text>
               </View>
            )
           : null}
