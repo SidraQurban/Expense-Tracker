@@ -12,7 +12,6 @@ const searchUser = async (text) => {
   let result = await fetch(url);
   result = await result.json();
   console.log("API Response:", result); 
-  
   if (result) {
     setData(result);
   }
