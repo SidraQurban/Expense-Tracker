@@ -16,11 +16,11 @@ const searchUser = async (text) => {
     setData(result);
   }
 };
-  return (
+  return ( 
     <View>
       <View
         style={{ marginTop: responsiveHeight(4), padding: responsiveWidth(5) }}
-      >
+      > 
         <TextInput
           placeholder="Search Here..."
           clearButtonMode="always"
