@@ -16,7 +16,6 @@ const searchUser = async (text) => {
   if (result) {
 
     setData(result);
-
   }
    
 };
