@@ -14,6 +14,7 @@ const searchUser = async (text) => {
   console.log("API Response:", result); 
   
 
+
   if (result) {
     setData(result);
   }
