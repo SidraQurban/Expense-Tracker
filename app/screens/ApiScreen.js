@@ -173,7 +173,6 @@ const updateUser = async()=>{
   props.SetShowModal(false);
   }  
 }
-
   return (
     <View>
       <View
