@@ -26,8 +26,7 @@ const searchUser = async (text) => {
           autoCapitalize="none"
           autoCorrect={false}
           style={{ borderColor: "blue", borderWidth: 1 }}
-          onChangeText={(text) => searchUser(text)}
-        />
+          onChangeText={(text) => searchUser(text)}/>
         {data.length
           ? data.map((item) => 
               <View key={item.id}>
