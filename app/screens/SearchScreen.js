@@ -7,8 +7,7 @@ const [data,setData] = useState([]);
 
 const searchUser = async (text) => {
   const url = `http://10.0.2.2:3000/users?q=${text}`;
-  console.warn(url);
-  
+  console.warn(url);  
   let result = await fetch(url);
   result = await result.json();
   console.log("API Response:", result); 
