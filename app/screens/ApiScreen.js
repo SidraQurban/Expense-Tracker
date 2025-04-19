@@ -157,7 +157,6 @@ useEffect(()=>{
     setEmail(props.selectedUser.email);
   }
 },[props.selectedUser])
-
 const updateUser = async()=>{
   console.warn(name,age,email);
   const url = "http://10.0.2.2:3000/users";
