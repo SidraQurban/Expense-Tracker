@@ -243,7 +243,7 @@ const updateUser = async()=>{
   );
 }
 
-export default ApiScreen
+export default ApiScreen;
 
 // Validation:
 // const [name,setName] = useState("");
