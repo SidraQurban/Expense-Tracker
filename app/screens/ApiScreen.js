@@ -47,6 +47,7 @@ const searchUser = async (text)=>{
   if(result){
     setData(result);
   }  
+  console.log("API Response:", result);
 }
 
 useEffect(()=> {
