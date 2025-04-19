@@ -172,8 +172,7 @@ const updateUser = async()=>{
   console.warn(result);
   props.getAPIData();
   props.SetShowModal(false);
-  }
-  
+  }  
 }
 
   return (
