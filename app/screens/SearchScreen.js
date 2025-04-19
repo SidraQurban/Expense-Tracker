@@ -38,5 +38,4 @@ const searchUser = async (text) => {
     </View>
   );
 }
-
 export default SearchScreen
