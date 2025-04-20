@@ -53,7 +53,6 @@ const searchUser = async (text)=>{
     setData([]);
   }
   
-  
 }
 
 useEffect(()=> {
