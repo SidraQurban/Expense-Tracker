@@ -53,7 +53,7 @@ const searchUser = async (text)=>{
     setData([]);
   }
   console.warn(result.length);
-  console.warn(data.length);
+
   
 }
 
