@@ -56,7 +56,7 @@ const searchUser = async (text)=>{
   console.warn(data.length);
   console.warn(data);
   console.warn("Result not found");
-  console.warn("Result found");
+  console.warn
 }
 
 useEffect(()=> {
