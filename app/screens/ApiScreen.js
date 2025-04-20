@@ -49,7 +49,7 @@ const searchUser = async (text)=>{
   }  
 
   console.warn(result);
-  if(result.length == 0){
+  if(result.length == 0)
  
   
 }
