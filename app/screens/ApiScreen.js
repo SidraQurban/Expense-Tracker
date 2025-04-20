@@ -52,6 +52,7 @@ const searchUser = async (text)=>{
   if(result.length == 0){
     setData([]);
   }
+  console.warn(result.length);
 }
 
 useEffect(()=> {
