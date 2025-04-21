@@ -14,7 +14,6 @@ let result = await fetch(url);
 result = await result.json();
 
 if(result){
-
 setData(result);
 }
 }
