@@ -17,7 +17,7 @@ if(result){
   
   setData(result);
   console.warn  (result);
-  console.warn("Data fetched successfully"
+  console.warn("Data
   
 }
 }
