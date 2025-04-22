@@ -17,7 +17,7 @@ if(result){
   
   setData(result);
   console.warn  (result);
-  console.
+  con
   
 }
 }
