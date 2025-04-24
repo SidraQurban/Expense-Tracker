@@ -15,7 +15,7 @@ result = await result.json();
 
 if(result){
     setData(result);
-  console.warn  (result);
+  console.warn (result);
 }
 }
 // Delete
