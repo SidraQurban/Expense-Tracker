@@ -17,6 +17,7 @@ if(result){
     setData(result);
   console.warn  (result);
 }
+
 }
 // Delete
 const deleteUser = async(id) => {
