@@ -17,7 +17,6 @@ if(result){
   setData(result);
   console.warn(result);
   setShowModal(false);
-
 }
 }
 // Delete
