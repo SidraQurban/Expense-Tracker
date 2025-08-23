@@ -5,5 +5,5 @@ export default function App() {
   return <AppNavigator />;
   <View>
     <Text></Text>
-  </View>;
+  
 }
