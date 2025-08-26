@@ -8,7 +8,6 @@ import {
 
 const HomeScreen = () => {
   const [data, setData] = useState([]);
-
   const getAPIData = async () => {
     const url = "https://jsonplaceholder.typicode.com/posts";
     let result = await fetch(url);
