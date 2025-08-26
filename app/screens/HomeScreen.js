@@ -15,7 +15,7 @@ const HomeScreen = () => {
     result = await result.json();
     setData(result);
   };
-  co;
+  c;
 
   useEffect(() => {
     getAPIData();
