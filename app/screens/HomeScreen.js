@@ -1,30 +1,32 @@
-import { View, Text, FlatList } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-dimensions';
+import { View, Text, FlatList } from "react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  responsiveFontSize,
+  responsiveHeight,
+} from "react-native-responsive-dimensions";
 
 const HomeScreen = () => {
-const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
 
-const getAPIData =async () =>{
-   const url = ("https://jsonplaceholder.typicode.com/posts");
-   let result = await fetch(url);
-   result = await result.json();
-   setData(result);
-     
-}
-const 
+  const getAPIData = async () => {
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    let result = await fetch(url);
+    result = await result.json();
+    setData(result);
+  };
+  cons;
 
-useEffect (() => {
-  getAPIData();
-},[])
+  useEffect(() => {
+    getAPIData();
+  }, []);
 
-  return (  
-    <View>       
-      {data.length ? (   
+  return (
+    <View>
+      {data.length ? (
         <FlatList
           data={data}
-          showsVerticalScrollIndicator = {false}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <View
               style={{
@@ -56,6 +58,6 @@ useEffect (() => {
       ) : null}
     </View>
   );
-}
+};
 
-export default HomeScreen
+export default HomeScreen;
