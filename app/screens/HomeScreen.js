@@ -13,7 +13,7 @@ const getAPIData =async () =>{
    setData(result);
      
 }
-const ge
+const g
 
 useEffect (() => {
   getAPIData();
