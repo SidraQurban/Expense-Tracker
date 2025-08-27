@@ -53,7 +53,7 @@ const HomeScreen = () => {
             </View>
           )}
         />
-        <Te
+        <T
       ) : null}
     </View>
   );
