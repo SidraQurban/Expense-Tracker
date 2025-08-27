@@ -53,6 +53,7 @@ const HomeScreen = () => {
             </View>
           )}
         />
+        <Text>Data Fetched</Text>
       ) : null}
     </View>
   );
