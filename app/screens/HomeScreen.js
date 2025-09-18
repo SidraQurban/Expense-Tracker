@@ -55,7 +55,7 @@ const HomeScreen = () => {
         />
       ) : null}
       <View></View>
-      <View></V
+      <View></
     </View>
   );
 };
